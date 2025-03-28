@@ -4,7 +4,6 @@ import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 
 export default async function Dashboard() {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
   const data = await getBlogs();
   return (
     <>

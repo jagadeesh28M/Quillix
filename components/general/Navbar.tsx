@@ -37,14 +37,19 @@ export default async function Navbar() {
 
       {user ? (
         <div className="flex items-center gap-4">
-          <div className="relative size-10 overflow-hidden rounded-full">
-            <Image
-              src={user.picture}
-              alt={user.given_name}
-              fill
-              className="object-cover"
-            />
-          </div>
+          {user.picture && user.given_name ? (
+            <div className="relative size-10 overflow-hidden rounded-full">
+              <Image
+                src={user.picture}
+                alt={user.given_name}
+                fill
+                className="object-cover"
+              />
+            </div>
+          ) : (
+            <div></div>
+          )}
+
           <p>{user.given_name}</p>
           <LogoutLink className={buttonVariants({ variant: "destructive" })}>
             Logout
